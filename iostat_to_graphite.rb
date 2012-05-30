@@ -25,4 +25,5 @@ ARGF.each do |line|
                             :key => "#{stat}_x100",
                             :value => Integer(Float(values.pop) * 100))
     end
+  end
 end
