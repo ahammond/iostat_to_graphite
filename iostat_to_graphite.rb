@@ -21,8 +21,8 @@ ARGF.each do |line|
     device_name = values.pop
     #prefix = "#{hostname}.iostat.#{values.pop}"
     %w{rrqmps wrpmpw rps wps rsecps wsecps avgrqsz avgqusz await svctm putil}.each do |stat|
-      GraphiteReporter :name => "iostat.#{device_name}",
-                       :key => "#{stat}_x100",
-                       :value => Integer(Float(values.pop) * 100)
+      GraphiteReporter.call(:name => "iostat.#{device_name}",
+                            :key => "#{stat}_x100",
+                            :value => Integer(Float(values.pop) * 100))
     end
 end
