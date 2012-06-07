@@ -8,6 +8,8 @@
 # http://www.cyberciti.biz/tips/linux-disk-performance-monitoring-howto.html
 # for info about the different outputs.
 #
+
+require 'rubygems'
 # Get this module from https://github.com/SmartReceipt/graphite_reporter
 require 'graphite_reporter'
 
