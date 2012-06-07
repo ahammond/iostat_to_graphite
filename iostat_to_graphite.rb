@@ -20,12 +20,11 @@ ENV['GRAPHITE_PROTOCOL'] = 'upd'
 ARGF.each do |line|
   if line =~ /^xvd/
     values = line.split(' ')
-    device_name = values.pop
-    #prefix = "#{hostname}.iostat.#{values.pop}"
+    device_name = values.shift
     %w{rrqmps wrpmpw rps wps rsecps wsecps avgrqsz avgqusz await svctm putil}.each do |stat|
       GraphiteReporter.call(:name => "iostat.#{device_name}",
                             :key => "#{stat}_x100",
-                            :value => Integer(Float(values.pop) * 100))
+                            :value => Integer(Float(values.shift) * 100))
     end
   end
 end
