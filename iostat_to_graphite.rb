@@ -15,7 +15,7 @@ require 'graphite_reporter'
 
 ENV['GRAPHITE_HOST'] = 'graphite01'
 ENV['GRAPHITE_PORT'] = '2005'
-ENV['GRAPHITE_PROTOCOL'] = 'upd'
+ENV['GRAPHITE_PROTOCOL'] = 'udp'
 
 ARGF.each do |line|
   if line =~ /^xvd/
