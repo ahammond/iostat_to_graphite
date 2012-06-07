@@ -18,7 +18,7 @@ ENV['GRAPHITE_PORT'] = '2005'
 ENV['GRAPHITE_PROTOCOL'] = 'upd'
 
 ARGF.each do |line|
-  if (line ~ /^xvd/) then
+  if line =~ /^xvd/
     values = line.split(' ')
     device_name = values.pop
     #prefix = "#{hostname}.iostat.#{values.pop}"
