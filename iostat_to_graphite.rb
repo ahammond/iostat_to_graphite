@@ -22,8 +22,8 @@ ARGF.each do |line|
     values = line.split(' ')
     device_name = values.shift
     %w{rrqmps wrpmpw rps wps rsecps wsecps avgrqsz avgqusz await svctm putil}.each do |stat|
-      GraphiteReporter.call(:key => device_name,
-                            :name => "iostat_#{stat}_x100",
+      GraphiteReporter.call(:key => "iostat",
+                            :name => "#{device_name}_#{stat}_x100",
                             :value => Integer(Float(values.shift) * 100))
     end
   end
