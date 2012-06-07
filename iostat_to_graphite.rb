@@ -21,6 +21,7 @@ ARGF.each do |line|
   if line =~ /^xvd/
     values = line.split(' ')
     device_name = values.shift
+    device_name = device_name.sub("xvda", "root").sub("xvdc", "swap")
     %w{rrqmps wrpmpw rps wps rsecps wsecps avgrqsz avgqusz await svctm putil}.each do |stat|
       GraphiteReporter.call(:key => "iostat",
                             :name => "#{device_name}_#{stat}_x100",
