@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 #
-# Run with something like iostat -nx 10 | iostat_to_graphite.rb
+# Run with something like iostat -Nx 10 | iostat_to_graphite.rb
 #
 # In order to make the move to integers clean, all values multiplied by 100
 #
